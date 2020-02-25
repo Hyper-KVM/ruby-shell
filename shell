@@ -57,13 +57,13 @@ end
 
 # render some pretty ASCII art
 
-def render_ascii_art
-  File.readlines("star.txt") do |line|
+def render_ascii_art(string)
+  File.readlines(string) do |line|
     puts line
   end
 end
 
-puts render_ascii_art
+puts render_ascii_art(config['ascii'])
 puts config['message'].blink.red
 begin
   while input = Readline.readline("[#{Etc.getlogin}@#{Socket.gethostname}]-(#{Dir.pwd})\n#{config['prompt']}", true).strip # TODO: Fix the broken prompt..
