@@ -55,6 +55,15 @@ class String
   include Colors
 end
 
+# render some pretty ASCII art
+
+def render_ascii_art
+  File.readlines("star.txt") do |line|
+    puts line
+  end
+end
+
+puts render_ascii_art
 puts config['message'].blink.red
 begin
   while input = Readline.readline("[#{Etc.getlogin}@#{Socket.gethostname}]-(#{Dir.pwd})\n#{config['prompt']}", true).strip # TODO: Fix the broken prompt..
